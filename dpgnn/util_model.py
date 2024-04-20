@@ -149,11 +149,11 @@ class SplitGraphNetwork(nn.Module):
     layers = [
       make_linear(num_features, layerwidth),
       nn.Dropout(0.1),
-      nn.GELU()]
+      nn.ReLU()]
     for _ in range(cfg['num_layers'] - 1):
       layers.append(make_linear(layerwidth, layerwidth))
       layers.append(nn.Dropout(0.1))
-      layers.append(nn.GELU())
+      layers.append(nn.ReLU())
     layers.append(make_linear(layerwidth, layerwidth))
     self.leaf_network_contact = nn.Sequential(*layers)
     del layers
@@ -162,11 +162,11 @@ class SplitGraphNetwork(nn.Module):
     layers = [
       make_linear(num_features, layerwidth),
       nn.Dropout(0.1),
-      nn.GELU()]
+      nn.ReLU()]
     for _ in range(cfg['num_layers'] - 1):
       layers.append(make_linear(layerwidth, layerwidth))
       layers.append(nn.Dropout(0.1))
-      layers.append(nn.GELU())
+      layers.append(nn.ReLU())
     layers.append(make_linear(layerwidth, layerwidth))
     self.leaf_network_obs = nn.Sequential(*layers)
     del layers
@@ -176,7 +176,7 @@ class SplitGraphNetwork(nn.Module):
     for _ in range(cfg['num_layers']):
       layers.append(make_linear(layerwidth, layerwidth))
       layers.append(nn.Dropout(0.1))
-      layers.append(nn.GELU())
+      layers.append(nn.ReLU())
     layers.append(make_linear(layerwidth, 1))
     self.backbone_network = nn.Sequential(*layers)
 
