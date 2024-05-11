@@ -5,6 +5,11 @@ This repository contains the code for training Deep Set neural networks in the p
 
 The corresponding paper can be found on arxiv: [https://arxiv.org/abs/2404.13381](https://arxiv.org/abs/2404.13381).
 
+For the Private ML workshop at ICLR 2024, one can find the poster and slides at:
+
+[robromijnders.nl/research/poster__iclr_workshop__dna.pdf](https://robromijnders.nl/research/poster__iclr_workshop__dna.pdf)
+[robromijnders.nl/research/private_ml_slides.pdf](https://robromijnders.nl/research/private_ml_slides.pdf)
+
 The main training loop is in dpgnn/train.py. It's a standard training script for training in PyTorch. The main difference starts in line 230 where we manually calculate the singular values and vectors for each weight matrix, so as to ensure that the spectral norm is exactly 1/C.
 
 # Contact
